@@ -1034,6 +1034,34 @@ extern "C" {
     pub fn setpwent();
     pub fn endpwent();
 
+    // grp.h 
+    pub fn getgrouplist(
+        user: *const ::c_char,
+        group: ::gid_t,
+        groups: *mut ::gid_t,
+        ngroups: *mut ::c_int,
+    ) -> ::c_int;
+    pub fn getgrnam(
+        name: *const ::c_char,
+    ) -> *mut ::group;
+    pub fn getgrgid(
+        gid: ::gid_t
+    ) -> *mut ::group;
+    pub fn getgrnam_r(
+        name: *const ::c_char,
+        grp: *mut ::group,
+        buf: *mut ::c_char,
+        buflen: ::size_t,
+        result: *mut *mut ::group,
+    ) -> ::c_int;
+    pub fn getgrgid_r(
+        gid: ::gid_t,
+        grp: *mut ::group,
+        buf: *mut ::c_char,
+        buflen: ::size_t,
+        result: *mut *mut ::group,
+    ) -> ::c_int;
+
     // signal.h
     pub fn pthread_sigmask(
         how: ::c_int,
