@@ -1030,6 +1030,9 @@ extern "C" {
         buflen: ::size_t,
         result: *mut *mut passwd,
     ) -> ::c_int;
+    pub fn getpwent() -> *mut ::passwd;
+    pub fn setpwent();
+    pub fn endpwent();
 
     // signal.h
     pub fn pthread_sigmask(
